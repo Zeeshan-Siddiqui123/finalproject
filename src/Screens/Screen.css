@@ -1,0 +1,83 @@
+.main{
+    width: 100%;
+    height: 500px;
+    background-image: linear-gradient(rgb(251, 209, 251),white);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.btn-collection{
+    /* text-decoration: none; */
+    background-color: red;
+    /* color: white; */
+    border: 1px solid red;
+    border-radius: 25px;
+    width: 200px;
+    padding: 0.7rem;;
+}
+.main h6{
+    font-weight: bold;
+}
+.main h1{
+    font-size: 2.5rem;
+}
+.img-men{
+    width: 450px;
+    height: 450px;
+    background-image: url('../images/men/men1.avif');
+    background-position: center;
+    background-size: cover;
+    mix-blend-mode: luminosity;
+    border-radius: 50%;
+}
+.main-banner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flat-discount{
+    width: 800px;
+    height: 200px;
+    background-image: linear-gradient( to right, rgba(252, 196, 196, 0.742), white);
+    border: 1px solid white;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.flat-discount span, h1{
+    color: orange;
+}
+.image-men{
+    width: 250px;
+    height: 200px;
+    background-image: url(../images/men/men1.avif);
+    background-position: center;
+    background-size: cover;
+    mix-blend-mode: multiply;
+}
+.image-women{
+    width: 250px;
+    height: 200px;
+    background-image: url(https://jeem.pk/cdn/shop/files/Saga_Blue_Luxury_Dress.jpg?v=1724052669&width=1000);
+    background-position: top;
+    background-size: cover;
+    mix-blend-mode: multiply;
+}
+.image-kid{
+    width: 250px;
+    height: 200px;
+    background-image: url(https://wearochre.com/cdn/shop/products/0085_OBS51_2.jpg?v=1646741345&width=500);
+    background-position: 5px -30px;
+    background-size: cover;
+    mix-blend-mode: multiply;
+}
+.men-images{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
