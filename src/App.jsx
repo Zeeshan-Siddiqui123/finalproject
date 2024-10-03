@@ -1,17 +1,18 @@
-import React from 'react'
-import Header from './Components/Header'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { routes } from './Routes'
-import Cart from './Screens/Cart'
-import Index from './Screens/Index'
-import ShopItems from './Screens/ShopItems'
-import Footer from './Components/Footer'
-import Login from './Screens/Login'
+import React from 'react';
+import Header from './Components/Header';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { routes } from './Routes';
+import Cart from './Screens/Cart';
+import Index from './Screens/Index';
+import ShopItems from './Screens/ShopItems';
+import Footer from './Components/Footer';
+import Login from './Screens/Login';
+import ProductDetails from './Screens/ProductDetails';
+import Products from './Screens/Products';
 
 const App = () => {
   return (
     <div>
-
       <BrowserRouter>
         <Header />
         <Routes>
@@ -20,15 +21,16 @@ const App = () => {
           ))}
           <Route path='/cart' element={<Cart />} />
           <Route path='/account' element={<Login />} />
-          <Route path='*' element={"Page Not Found"} />
-          <Route path='/' element={<Index/>}>
-            <Route path='shopitems' element={<ShopItems/>}/>
-          </Route>
+          <Route path='*' element={<div>Page Not Found</div>} />
+          <Route path='/' element={<Index />} />
+          <Route path='/shopitems' element={<ShopItems />} />
+          <Route path='/products' element={<Products />} />
+          <Route path='/product/:id' element={<ProductDetails />} /> {/* Updated this route */}
         </Routes>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../Components/Card';
+import {  Spin } from 'antd';
 
 const Products = () => {
   // State to store products data
@@ -24,7 +25,7 @@ const Products = () => {
   }, []);  // Empty dependency array means this will run once when the component mounts
 
   if (loading) {
-    return <h2>Loading...</h2>;
+    return <div className='flex items-center justify-center top-2/4'> <Spin size='large'/></div>;
   }
 
   return (
@@ -41,7 +42,7 @@ const Products = () => {
 
       <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "2rem", flexWrap: "wrap", marginTop: "2rem" }}>
         {products.map(product => (
-          <Card key={product.id} product={product} image={product.image} description={product.category} price={product.price}/>
+          <Card key={product.id} id={product.id} product={product} image={product.image} description={product.title} price={product.price}/>
         ))}
       </div>
     </div>

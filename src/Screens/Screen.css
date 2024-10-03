@@ -22,15 +22,7 @@
 .main h1{
     font-size: 2.5rem;
 }
-.img-men{
-    width: 450px;
-    height: 450px;
-    background-image: url('../images/men/men1.avif');
-    background-position: center;
-    background-size: cover;
-    mix-blend-mode: luminosity;
-    border-radius: 50%;
-}
+
 .main-banner{
     display: flex;
     align-items: center;
@@ -65,14 +57,7 @@
     background-size: cover;
     mix-blend-mode: multiply;
 }
-.image-kid{
-    width: 250px;
-    height: 200px;
-    background-image: url(https://wearochre.com/cdn/shop/products/0085_OBS51_2.jpg?v=1646741345&width=500);
-    background-position: 5px -30px;
-    background-size: cover;
-    mix-blend-mode: multiply;
-}
+
 .men-images{
     display: flex;
     align-items: center;

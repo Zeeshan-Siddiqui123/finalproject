@@ -1,27 +1,23 @@
- import React from 'react'
+import React from 'react'
+import { MdOutlineShoppingCart } from 'react-icons/md'
+import { Link } from 'react-router-dom'
 
 const Card = (props) => {
-  const { image, description, price, strikethrough } = props
+  const {id, image, description, price } = props
   return (
-    <div className='w-[250px]'>
-      <div  style={
-        {
-          position: "relative",
-          display: "flex",
-          flexDirection: "column",
-        }
-      }>
-        <div style={{width:"250px", height:"350px", backgroundImage: `url(${image})`, backgroundPosition:"center", backgroundSize:"cover", backgroundColor:"black"}} ></div>
+    <div className='w-[300px]'>
+      <div className='relative flex flex-col gap-1 shadow-black'>
+        <div style={{ width: "300px", height: "400px", backgroundImage: `url(${image})`, backgroundPosition: "center", backgroundSize: "cover", backgroundColor: "black" }} ></div>
         <span>{description}</span>
-        <div style={
-          {
-            display: "flex",
-            flexDirection: "row",
-            gap:"1rem"
-          }
-        }><span>{price}</span>
-        <pre style={{ textDecorationLine: "line-through", color: "grey" }}>{strikethrough}</pre>
+        <div className='flex flex-row justify-between'><span>{price}$</span>
+
+          <button className='bg-yellow-500 rounded-full '><MdOutlineShoppingCart size='30' color='white' /> </button>
         </div>
+        <div><Link to={`/product/${id}`} className='w-full'>
+          <button className='bg-black text-white p-2 w-full mt-2'>
+            View Details
+          </button>
+        </Link></div>
       </div>
     </div>
   )
