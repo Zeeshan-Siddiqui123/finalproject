@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { MdOutlineShoppingCart } from 'react-icons/md'
 import { Link } from 'react-router-dom'
+// import { CartContext } from '../Screens/CartContext'
+// import { CartContext } from './CartContext';
+
 
 const Card = (props) => {
   const {id, image, description, price } = props
+  // const { addToCart } = useContext(CartContext);
+
   return (
     <div className='w-[300px]'>
       <div className='relative flex flex-col gap-1 shadow-black'>
@@ -11,7 +16,9 @@ const Card = (props) => {
         <span>{description}</span>
         <div className='flex flex-row justify-between'><span>{price}$</span>
 
-          <button className='bg-yellow-500 rounded-full '><MdOutlineShoppingCart size='30' color='white' /> </button>
+          <button className='bg-yellow-500 rounded-full ' 
+          //  onClick={() => addToCart(product)}
+            ><MdOutlineShoppingCart size='30' color='white' /> </button>
         </div>
         <div><Link to={`/product/${id}`} className='w-full'>
           <button className='bg-black text-white p-2 w-full mt-2'>

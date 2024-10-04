@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Card from '../Components/Card';
 import {  Spin } from 'antd';
+// import { CartContext } from './CartContext';
 
 const Products = () => {
   // State to store products data
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  // const { addToCart } = useContext(CartContext);
   // Fetch data from Fake Store API
   useEffect(() => {
     const fetchProducts = async () => {
