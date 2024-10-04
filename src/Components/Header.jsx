@@ -1,10 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import './Components.css';
 import { Link } from 'react-router-dom';
 import { routes } from '../Routes';
 import { FaShopify, FaTimes } from 'react-icons/fa';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import { CiMenuFries } from 'react-icons/ci';
+// import { CartContext } from '../Screens/CartContext';
 
 
 const Navbar = () => {
@@ -21,7 +22,7 @@ const Navbar = () => {
     crossRef.current.style.visibility = "hidden"
     toggleRef.current.style.visibility = "visible"
   }
-
+  // const { cart } = useContext(CartContext);
   return (
     <div>
       <nav>
@@ -43,7 +44,7 @@ const Navbar = () => {
         </div>
         <div>
           <Link to="/cart" className='nav-link' >
-            <MdOutlineShoppingCart size='30' />
+            <MdOutlineShoppingCart size='30' /> 
           </Link>
         </div>
         <button><Link to="/account">Login/Sign Up</Link></button>
