@@ -9,6 +9,7 @@ import Footer from './Components/Footer';
 import Login from './Screens/Login';
 import ProductDetails from './Screens/ProductDetails';
 import Products from './Screens/Products';
+// import { CartProvider } from './Screens/CartContext';
 
 const App = () => {
   return (

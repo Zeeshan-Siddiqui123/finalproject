@@ -44,9 +44,10 @@ nav .nav-links div{
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
+    margin-top: 20px;
 }
 .subscription{
-    width: 70%;
+    width: 100%;
     height: 300px;
     background-image: linear-gradient(rgb(251, 209, 251),white);
     display: flex;

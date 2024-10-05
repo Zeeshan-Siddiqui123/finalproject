@@ -1,32 +1,32 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from '../Components/Card';
-import {  Spin } from 'antd';
-// import { CartContext } from './CartContext';
+import { Spin } from 'antd';
 
 const Products = () => {
-  // State to store products data
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  // const { addToCart } = useContext(CartContext);
-  // Fetch data from Fake Store API
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await fetch('https://fakestoreapi.com/products');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
         const data = await response.json();
-        setProducts(data);  // Set fetched products into state
-        setLoading(false);  // Stop loading when data is fetched
+        setProducts(data);
       } catch (error) {
         console.error('Error fetching products:', error);
+      } finally {
         setLoading(false);
       }
     };
 
-    fetchProducts();  // Call the fetch function
-  }, []);  // Empty dependency array means this will run once when the component mounts
+    fetchProducts();
+  }, []);
 
   if (loading) {
-    return <div className='flex items-center justify-center top-2/4'> <Spin size='large'/></div>;
+    return <div className='flex items-center justify-center'><Spin size='large' /></div>;
   }
 
   return (
@@ -43,7 +43,7 @@ const Products = () => {
 
       <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "2rem", flexWrap: "wrap", marginTop: "2rem" }}>
         {products.map(product => (
-          <Card key={product.id} id={product.id} product={product} image={product.image} description={product.title} price={product.price}/>
+          <Card key={product.id} id={product.id} product={product} image={product.image} description={product.title} price={product.price} />
         ))}
       </div>
     </div>
