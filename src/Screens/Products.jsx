@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../Components/Card';
-import { Spin } from 'antd';
+import { Spin, message } from 'antd';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -17,6 +17,7 @@ const Products = () => {
         setProducts(data);
       } catch (error) {
         console.error('Error fetching products:', error);
+        message.error('Failed to load products. Please try again later.');
       } finally {
         setLoading(false);
       }
@@ -26,11 +27,26 @@ const Products = () => {
   }, []);
 
   if (loading) {
-    return <div className='flex items-center justify-center'><Spin size='large' /></div>;
+    return (
+      <div className='flex items-center justify-center' style={{ height: '100vh' }}>
+        <Spin size='large' />
+      </div>
+    );
+  }
+
+  if (products.length === 0) {
+    return (
+      <div className='flex items-center justify-center' style={{ height: '100vh' }}>
+        <h2>No products available at the moment.</h2>
+      </div>
+    );
   }
 
   return (
     <div>
+      <header>
+        <h1 className='text-center'>Our Products</h1>
+      </header>
       <div className='main-banner'>
         <div className='flat-discount'>
           <div>
@@ -43,7 +59,14 @@ const Products = () => {
 
       <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "2rem", flexWrap: "wrap", marginTop: "2rem" }}>
         {products.map(product => (
-          <Card key={product.id} id={product.id} product={product} image={product.image} description={product.title} price={product.price} />
+          <Card
+            key={product.id}
+            id={product.id}
+            product={product}
+            image={product.image}
+            description={product.title}
+            price={product.price}
+          />
         ))}
       </div>
     </div>

@@ -1,13 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Spin, message } from 'antd';
+import { Link, useParams } from 'react-router-dom';
+import { Spin, message, Button } from 'antd';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import { CartContext } from '../Screens/CartContext';
-// import { CartProvider } from './Screens/CartContext';
+import StarRating from '../Components/StarRating';
+import { LuBus } from "react-icons/lu";
 
 
 const ProductDetails = () => {
   const { id } = useParams();
+  // const history = useHistory();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -43,23 +45,48 @@ const ProductDetails = () => {
   }
 
   if (!product) {
-    return <div>No product found.</div>;
+    return <div>No product found.</div>
   }
 
   return (
-    <div className='flex flex-row'>
-      <div>
-        <img src={product.image} alt={product.title} className='w-[700px] h-[500px]' />
+    <div className='container mx-auto p-4 flex flex-col md:flex-row'>
+      <div className='flex-1 mt-4'>
+        <img src={product.image} alt={product.title} className='w-[375px] h-auto rounded-lg shadow-lg' />
       </div>
-      <div>
-        <h1>{product.title}</h1>
-        <p><strong>Price:</strong> ${product.price}</p>
-        <p><strong>Description:</strong> {product.description}</p>
-        <p><strong>Category:</strong> {product.category}</p>
-        <button className='bg-yellow-500 rounded-full' onClick={() => addToCart(product)}>
-            <MdOutlineShoppingCart size='30' color='white' />
-          </button>
+      <div className='flex-1 p-4 gap-0'>
+        <h1 className='text-2xl font-bold mb-2'>{product.title}</h1>
+        <p className='text-lg mb-2'><strong>Price:</strong> ${product.price.toFixed(2)}</p>
+        <p className='text-md mb-2'><strong>Description:</strong> {product.description}</p>
+        <p className='text-md mb-2'><strong>Category:</strong> {product.category}</p>
+        {product.rating && (
+          <div className='flex items-center mb-2'>
+            <strong>Rating:</strong>
+            <StarRating rating={product.rating.rate} /> {/* Display the star rating */}
+            <span className='ml-2'>({product.rating.count} reviews)</span>
+          </div>
+        )}
+        <div className='flex items-center space-x-2'>
+          <Button
+            type='primary'
+            className='bg-yellow-500 flex items-center'
+            onClick={() => addToCart(product)}
+          >
+            <MdOutlineShoppingCart size='20' color='white' />
+            <span className='ml-2'>Add to Cart</span>
+          </Button>
+          <Button
+            type='primary'
+            className='bg-[#f49521] flex items-center'
+            onClick={() => addToCart(product)}
+          >
+            <LuBus size='20' color='white' />
+            <span className='ml-2'>Order Now</span>
+          </Button>
+        </div>
       </div>
+      <Button >
+        <Link to="/products">Go Back</Link>
+      </Button>
     </div>
   );
 };

@@ -1,38 +1,50 @@
-import React from 'react'
-import { FaShopify, FaInstagram, FaWhatsapp, FaPinterest } from 'react-icons/fa'
+import React from 'react';
+import { FaShopify, FaInstagram, FaWhatsapp, FaPinterest } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <div className='footer'>
-            <div className='subscription'>
-                <h1 style={{ color: "black" }}>Get Exclusive Offers On Your Email</h1>
-                <h6 style={{ color: "grey" }}>Subscribe to our newsletter and stay updates</h6>
-                <div className='inp-btn'>
-                    <form>
-                    <input type="email" placeholder='Your email id' className='footer-input' />
-                    <button>Subscribe</button>
-                    </form>
+        <div className='bg-gray-800 text-white p-8'>
+            <div className='container mx-auto'>
+                <div className='subscription text-center mb-8'>
+                    <h1 className='text-2xl font-bold'>Get Exclusive Offers On Your Email</h1>
+                    <h6 className='text-gray-400 mb-4'>Subscribe to our newsletter and stay updated</h6>
+                    <div className='flex justify-center'>
+                        <form className='flex'>
+                            <input 
+                                type="email" 
+                                placeholder='Your email id' 
+                                className='footer-input px-4 py-2 rounded-l-lg border-none'
+                            />
+                            <button className='bg-yellow-500 text-black rounded-r-lg px-4 py-2 hover:bg-yellow-600 transition duration-300'>
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div className='f-2'>
-                <div className='footer-name'>
-                    <div><FaShopify color='red' size='40' /></div>
-                    <div><h1 style={{ color: "black" }}>SHOPPER</h1></div>
+                <div className='flex flex-col md:flex-row justify-between items-center'>
+                    <div className='footer-name flex items-center mb-4 md:mb-0'>
+                        <FaShopify color='red' size='40' />
+                        <h1 className='text-xl font-bold ml-2'>SHOPPER</h1>
+                    </div>
+                    <div className='text-center md:text-left mb-4 md:mb-0 flex gap-2'>
+                        <p>Company</p>
+                        <p>Offices</p>
+                        <p>Product</p>
+                        <p>About</p>
+                        <p>Contact</p>
+                    </div>
+                    <div className='flex space-x-4 mb-4 md:mb-0'>
+                        <FaInstagram size='30' />
+                        <FaPinterest size='30' />
+                        <FaWhatsapp size='30' />
+                    </div>
                 </div>
-                <div>
-                    <pre>
-                    Company  Offices  Product  About  Conatct 
-                    </pre>
+                <div className='text-center mt-8'>
+                    <h6 className='text-gray-400'>Copyright @ 2024 | All Rights Reserved</h6>
                 </div>
-                <div style={{display:"flex", alignItems:"center", justifyContent:"center", gap:"2rem"}}>
-                    <FaInstagram size='30'/>
-                    <FaPinterest size='30'/>
-                    <FaWhatsapp size='30'/>  
-                </div>
-                <div><h6 style={{marginTop:"2rem"}}>Copyright @ 2024 | All Rights Reserved</h6></div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;
