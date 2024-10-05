@@ -1,11 +1,14 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { CartContext } from './CartContext';
 import { MdDelete } from "react-icons/md";
+import { Modal, Button } from 'antd';
 
 const Cart = () => {
   const { cart, removeFromCart } = useContext(CartContext);
   const [counts, setCounts] = useState(cart.map(() => 1));
   const [total, setTotal] = useState(0);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const increase = (index) => {
     const newCounts = [...counts];
@@ -28,6 +31,20 @@ const Cart = () => {
     setTotal(subtotal);
   }, [counts, cart]);
 
+  const showModal = (product) => {
+    setSelectedProduct(product);
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    removeFromCart(selectedProduct.id);
+    setIsModalVisible(false); 
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false); 
+  };
+
   return (
     <div className="container mx-auto p-6">
       <div className="text-center mt-5">
@@ -39,7 +56,7 @@ const Cart = () => {
         </div>
       ) : (
         <>
-          <div className="flex flex-row items-center justify-around w-full p-2 mt-4 bg-gray-100 rounded-lg flex-wrap">
+          <div className="flex flex-row items-center justify-around w-full p-2 mt-4 bg-gray-100 rounded-lg">
             <div className="w-[40px] ml-7"><h3 className="font-bold">Product</h3></div>
             <div className="w-[150px]"><h3 className="font-bold">Title</h3></div>
             <div className="-ml-10"><h3 className="font-bold">Price</h3></div>
@@ -66,7 +83,7 @@ const Cart = () => {
                   </button>
                 </div>
                 <button 
-                  onClick={() => removeFromCart(product.id)} 
+                  onClick={() => showModal(product)} 
                   className="hover:text-red-700 transition-all">
                   <MdDelete size={30} className="text-red-500" />
                 </button>
@@ -90,6 +107,18 @@ const Cart = () => {
               <h3 className="font-bold">${total.toFixed(2)}</h3>
             </div>
           </div>
+
+          {/* Ant Design Modal */}
+          <Modal 
+            title="Confirm Removal" 
+            visible={isModalVisible} 
+            onOk={handleOk} 
+            onCancel={handleCancel}
+            okText="Yes, Remove"
+            cancelText="Cancel"
+          >
+            <p>Are you sure you want to remove <b>{selectedProduct?.title}</b> from the cart?</p>
+          </Modal>
         </>
       )}
     </div>

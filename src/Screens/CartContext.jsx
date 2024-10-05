@@ -37,21 +37,16 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeFromCart = (productId) => {
-    const confirmed = confirm(`Are you sure you want to delete this item from your cart?`);
-    if (confirmed) {
+    // const confirmed = confirm(`Are you sure you want to delete this item from your cart?`);
+    // if (confirmed) {
       setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
-    }
+    // }
   };
 
-  const clearCart = () => {
-    const confirmed = confirm(`Are you sure you want to clear your cart?`);
-    if (confirmed) {
-      setCart([]);
-    }
-  };
+  
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );
