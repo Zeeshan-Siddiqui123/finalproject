@@ -2,43 +2,92 @@ body{
     margin: 0;
     padding: 0;
 }
-nav{
+nav {
     background-color: rgb(255, 255, 255);
     width: 100%;
     height: 70px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     z-index: 3;
-    flex-wrap: wrap;
     border-bottom: 2px solid red;
+    padding: 0 20px; 
+    position: fixed; 
+    top: 0;
+    transition: background-color 0.3s; 
 }
-.main-name{
+
+.main-name {
     display: flex;
     align-items: center;
-    justify-content: left;
     gap: 0.5rem;
 }
-nav  h1{
+
+nav h1 {
     color: rgb(13, 13, 13);
+    font-size: 24px; 
 }
-nav .nav-links div{
+
+.toggle-close, .toggle-btn {
+    display: none; /* Hidden by default */
+}
+
+nav .nav-links {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
     gap: 1.5rem;
+    transition: visibility 0.3s; 
+    visibility: visible; 
 }
-.nav-link{
+
+.nav-link {
     text-decoration: none;
     color: rgb(14, 14, 14);
+    font-weight: bold;
+    transition: color 0.3s; 
 }
-.toggle-btn{
-    display: none;
+
+.nav-link:hover {
+    color: red; 
 }
-.toggle-close{
-    display: none;
+
+.login-button {
+    background-color: red; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 5px 10px;
+    cursor: pointer; 
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column; /* Stack links vertically on small screens */
+        position: absolute; /* Position absolute for dropdown */
+        top: 70px; /* Below the navbar */
+        left: 0;
+        width: 100%; /* Full width */
+        background-color: white; /* Background color for dropdown */
+        border-top: 2px solid red; /* Border to separate from navbar */
+        visibility: hidden; /* Hide initially */
+    }
+
+    .nav-links.active {
+        visibility: visible; /* Show when active */
+    }
+
+    .toggle-close {
+        display: block; /* Show close button on mobile */
+        cursor: pointer; /* Pointer cursor for interaction */
+    }
+
+    .toggle-btn {
+        display: block; /* Show toggle button on mobile */
+        cursor: pointer; /* Pointer cursor for interaction */
+    }
+}
+
 .footer{
     display: flex;
     align-items: center;
@@ -104,45 +153,5 @@ nav .nav-links div{
         text-decoration: none;
         color: rgb(14, 14, 14);
     }
-    .toggle-btn{
-        display: none;
-    }
-    .toggle-close{
-        display: none;
-    }
 }
- @media screen and (max-width: 600px) {
-    .toggle-btn{
-        display: block;
-    }
-    nav .nav-links {
-        visibility: hidden;
-    }
-    .toggle-close{
-        position: absolute;
-        visibility: hidden;
-        top: 80px;
-        right: 50px;
-        z-index: 2;
-        display: flex;
-        justify-content: right;
-    }
-    nav .nav-links div{
-        transition: 0.1s ease ;
-        position: absolute;
-        top: 70px;
-        right: 0;
-        left: 0;
-        flex-direction: column;
-        background-color: white;
-        z-index: 2;
-        padding: 20px;
-        gap: 15px;
-        flex-direction: column;
-    }
-    .nav-link{
-        color: rgb(7, 7, 7);
-    }
-    
- }
   

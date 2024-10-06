@@ -9,7 +9,6 @@ import { LuBus } from "react-icons/lu";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  // const history = useHistory();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -49,9 +48,9 @@ const ProductDetails = () => {
   }
 
   return (
-    <div className='container mx-auto p-4 flex flex-col md:flex-row'>
-      <div className='flex-1 mt-4'>
-        <img src={product.image} alt={product.title} className='w-[375px] h-auto rounded-lg shadow-lg' />
+    <div className='container mx-auto p-4 flex flex-col md:flex-row mt-16'>
+      <div className='flex-1 '>
+        <img src={product.image} alt={product.title} className='w-[400px] h-[450px] rounded-lg shadow-lg ml-16 mt-0' />
       </div>
       <div className='flex-1 p-4 gap-0'>
         <h1 className='text-2xl font-bold mb-2'>{product.title}</h1>
@@ -61,7 +60,7 @@ const ProductDetails = () => {
         {product.rating && (
           <div className='flex items-center mb-2'>
             <strong>Rating:</strong>
-            <StarRating rating={product.rating.rate} /> {/* Display the star rating */}
+            <StarRating rating={product.rating.rate} /> 
             <span className='ml-2'>({product.rating.count} reviews)</span>
           </div>
         )}
