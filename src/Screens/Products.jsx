@@ -49,7 +49,7 @@ const Products = () => {
       </header>
       <div className='main-banner'>
         <div className='flat-discount'>
-          <div>
+          <div className='disc'>
             <h1>Flat 50% off</h1>
             <h3><span>12</span> Hours <span>20</span> Minutes</h3>
           </div>

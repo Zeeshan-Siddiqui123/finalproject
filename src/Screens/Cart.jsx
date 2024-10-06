@@ -56,10 +56,10 @@ const Cart = () => {
         </div>
       ) : (
         <>
-          <div className="flex flex-row items-center justify-around w-full p-2 mt-4 bg-gray-100 rounded-lg">
-            <div className="w-[40px] ml-7"><h3 className="font-bold">Product</h3></div>
-            <div className="w-[150px]"><h3 className="font-bold">Title</h3></div>
-            <div className="-ml-10"><h3 className="font-bold">Price</h3></div>
+          <div className="flex flex-row items-center justify-around w-full p-2 mt-4 bg-gray-100 rounded-lg flex-wrap ">
+            <div ><h3 className="font-bold">Product</h3></div>
+            <div ><h3 className="font-bold">Title</h3></div>
+            <div><h3 className="font-bold">Price</h3></div>
             <h3 className="font-bold">Quantity</h3>
             <h3 className="font-bold">Remove</h3>
           </div>

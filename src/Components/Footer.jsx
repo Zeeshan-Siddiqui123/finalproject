@@ -10,44 +10,44 @@ const Footer = () => {
 
   const handleSuccesClick = (e) => {
     e.preventDefault();
-    
-    
+
+
     if (email.trim() === '') {
       setModalMessage('Please enter your email ID');
     } else {
       setModalMessage('Your subscription has been added!');
     }
 
-    
+
     setIsModalVisible(true);
   };
 
   const handleOk = () => {
     setIsModalVisible(false);
     if (modalMessage === 'Your subscription has been added!') {
-      setEmail(''); 
+      setEmail('');
     }
   };
 
   return (
     <div className='bg-gray-800 text-white p-8'>
       <div className='container mx-auto'>
-    
+
         <div className='subscription text-center mb-8'>
           <h1 className='text-2xl font-bold'>Get Exclusive Offers On Your Email</h1>
           <h6 className='text-gray-400 mb-4'>Subscribe to our newsletter and stay updated</h6>
           <div className='flex justify-center'>
-            <form className='flex' onSubmit={handleSuccesClick}>
-              <input 
-                type="email" 
-                placeholder='Your email ID' 
-                className='footer-input px-4 py-2 rounded-l-lg border-none'
+            <form className='flex flex-wrap items-center justify-center form' onSubmit={handleSuccesClick}>
+              <input
+                type="email"
+                placeholder='Your email ID'
+                className='footer-input px-4 py-2 rounded-full border-none '
                 value={email}
-                onChange={(e) => setEmail(e.target.value)} 
+                onChange={(e) => setEmail(e.target.value)}
               />
-              <button 
-                type="submit" 
-                className='bg-yellow-500 text-black rounded-r-lg px-4 py-2 hover:bg-yellow-600 transition duration-300'
+              <button
+                type="submit"
+                className='bg-yellow-500 text-black rounded-full text-center px-4 py-2 hover:bg-yellow-600 transition duration-300 subscribe'
               >
                 Subscribe
               </button>
@@ -55,7 +55,7 @@ const Footer = () => {
           </div>
         </div>
 
-        
+
         <div className='flex flex-col md:flex-row justify-between items-center'>
           <div className='footer-name flex items-center mb-4 md:mb-0'>
             <FaShopify color='red' size='40' />
@@ -75,17 +75,17 @@ const Footer = () => {
           </div>
         </div>
 
-        
+
         <div className='text-center mt-8'>
           <h6 className='text-gray-400'>Copyright @ 2024 | All Rights Reserved</h6>
         </div>
 
 
-        <Modal 
-          title="Subscription Status" 
-          visible={isModalVisible} 
-          onOk={handleOk} 
-          cancelButtonProps={{ style: { display: 'none' } }} 
+        <Modal
+          title="Subscription Status"
+          visible={isModalVisible}
+          onOk={handleOk}
+          cancelButtonProps={{ style: { display: 'none' } }}
         >
           <p>{modalMessage}</p>
         </Modal>

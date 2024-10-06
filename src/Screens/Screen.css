@@ -1,7 +1,6 @@
 .main {
     width: 100%;
     height: 500px;
-    
     background-image: linear-gradient(to bottom right, rgba(182, 222, 250, 0.411), rgba(249, 84, 84, 0.329));
     display: flex;
     align-items: center;
@@ -95,4 +94,30 @@
     gap: 2rem;
     flex-wrap: wrap;
     margin-top: 2rem;
+}
+@media screen and (max-width: 600px){
+    .main{
+        height: 700px;
+        display: flex;
+        flex-wrap: wrap-reverse;
+        margin-top: 30px;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    .text-content{
+        display: flex;        
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 20%
+    }
+    .flat-discount{
+        width: 350px;
+    }
+    .flat-discount h1{
+        font-size: 20px;
+    }
+    .flat-discount .disc{
+        margin-left: 20px;
+    }
 }

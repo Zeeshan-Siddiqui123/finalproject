@@ -1,6 +1,6 @@
 import React from 'react';
 import './Screen.css';
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   return (
@@ -18,7 +18,7 @@ const Index = () => {
         </div>
         <div className='img-men'></div>
       </div>
-      <Outlet />
+      
     </div>
   );
 };
